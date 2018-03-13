@@ -20,18 +20,14 @@ public class MeterArchive {
         meters.add(m);
     }
 
-    public void printAllInstruments(){
-        for(Meter m : meters){
-            System.out.println(m);
-            System.out.println("----");
-        }
-        System.out.println();
+    public List printAllInstruments(){
+        return meters;
     }
 
     public Meter getInstrument(String regNum){
-        for(int i = 0; i < meters.size(); i++) {
-            if(meters.get(i).getRegNum().equals(regNum)){
-                return meters.get(i);
+        for(Meter m : meters){
+            if(m.getRegNum().equals(regNum)){
+                return m;
             }
         }
         return null;
@@ -48,17 +44,17 @@ public class MeterArchive {
     }
 
     public void setInstrumentNotWorking(String regNum){
-        for(int i = 0; i < meters.size(); i++) {
-            if(meters.get(i).getRegNum().equals(regNum)){
-                meters.get(i).setWorking(false);
+        for(Meter m : meters){
+            if(m.getRegNum().equals(regNum)){
+                m.setWorking(false);
             }
         }
     }
 
     public void setInstrumentNewPosition(String regNum, String plassKode){
-        for (int i = 0; i < meters.size(); i++) {
-            if(meters.get(i).getRegNum().equals(regNum)){
-                meters.get(i).setPlassNum(plassKode);
+        for(Meter m : meters){
+            if(m.getRegNum().equals(regNum)){
+                m.setPlassNum(plassKode);
             }
         }
     }
