@@ -27,11 +27,8 @@ public class MeterArchive {
     /**
      * Prins all instruments
      */
-    public void printAllInstruments(){
-        for (Meter m : meters){
-            System.out.println("***");
-            System.out.println(m);
-        }
+    public List printAllInstruments(){
+        return meters;
     }
 
     /**
