@@ -16,10 +16,17 @@ public class MeterArchive {
         meters.add(c);
     }
 
+    /**
+     *Add an instrument to the list of other instrument
+     * @param m The instrument you want to add.
+     */
     public void addInstrument(Meter m){
         meters.add(m);
     }
 
+    /**
+     * Prins all instruments
+     */
     public void printAllInstruments(){
         for (Meter m : meters){
             System.out.println("***");
@@ -27,6 +34,11 @@ public class MeterArchive {
         }
     }
 
+    /**
+     * Get the defined instrument from the list.
+     * @param regNum The registration number representing the instrument.
+     * @return The instrument in question.
+     */
     public Meter getInstrument(String regNum){
         for(Meter m : meters){
             if(m.getRegNum().equals(regNum)){
@@ -36,6 +48,11 @@ public class MeterArchive {
         return null;
     }
 
+    /**
+     * Delete an instrument form the list.
+     * @param regNum The registration number representing the instrument.
+     * @return The instrument in question.
+     */
     public boolean deleteInstrument(String regNum){
         for(Iterator<Meter> it = meters.iterator(); it.hasNext();){
             if(it.next().getRegNum().equals(regNum)){
@@ -46,6 +63,10 @@ public class MeterArchive {
         return false;
     }
 
+    /**
+     * Set an instruments status to not working.
+     * @param regNum the instrument in question.
+     */
     public void setInstrumentNotWorking(String regNum){
         for(Meter m : meters){
             if(m.getRegNum().equals(regNum)){
@@ -54,6 +75,11 @@ public class MeterArchive {
         }
     }
 
+    /**
+     * Set a new position where an instrument is stored.
+     * @param regNum The instrument in question.
+     * @param plassKode The new code where we wanna store the instrument.
+     */
     public void setInstrumentNewPosition(String regNum, String plassKode){
         for(Meter m : meters){
             if(m.getRegNum().equals(regNum)){
