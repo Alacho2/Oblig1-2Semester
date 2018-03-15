@@ -20,8 +20,11 @@ public class MeterArchive {
         meters.add(m);
     }
 
-    public List printAllInstruments(){
-        return meters;
+    public void printAllInstruments(){
+        for (Meter m : meters){
+            System.out.println("***");
+            System.out.println(m);
+        }
     }
 
     public Meter getInstrument(String regNum){

@@ -1,12 +1,12 @@
 public class Client {
 
+    MeterArchive m;
     public Client(){
+        m = new MeterArchive();
         mainMethod();
     }
 
-    private void mainMethod() {
-        MeterArchive m = new MeterArchive();
-
+    public void mainMethod() {
         m.printAllInstruments(); //Print the instrument
         m.deleteInstrument("k300"); //Delete instrument with regNumber k300
         m.getInstrument("k100"); //Get the instrument with regNumber k100
