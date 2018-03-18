@@ -8,12 +8,9 @@ public class MeterArchive {
 
     public MeterArchive(){
         meters = new ArrayList<>();
-        Weight w = new Weight();
-        Thermometer t = new Thermometer();
-        Clock c = new Clock();
-        meters.add(w);
-        meters.add(t);
-        meters.add(c);
+        meters.add(new Weight());
+        meters.add(new Thermometer());
+        meters.add(new Clock());
     }
 
     /**
@@ -64,12 +61,12 @@ public class MeterArchive {
      * Set an instruments status to not working.
      * @param regNum the instrument in question.
      */
-    public void setInstrumentNotWorking(String regNum){
-        for(Meter m : meters){
-            if(m.getRegNum().equals(regNum)){
-                m.setWorking(false);
-            }
+    public boolean setInstrumentNotWorking(String regNum){
+        if(getInstrument(regNum) != null){
+            getInstrument(regNum).setWorking(false);
+            return true;
         }
+        return false;
     }
 
     /**
@@ -77,11 +74,12 @@ public class MeterArchive {
      * @param regNum The instrument in question.
      * @param plassKode The new code where we wanna store the instrument.
      */
-    public void setInstrumentNewPosition(String regNum, String plassKode){
-        for(Meter m : meters){
-            if(m.getRegNum().equals(regNum)){
-                m.setPlassNum(plassKode);
-            }
+    public boolean setInstrumentNewPosition(String regNum, String plassKode){
+        if(getInstrument(regNum) != null){
+            getInstrument(regNum).setPlassNum(plassKode);
+            return true;
+        } else {
+            return false;
         }
     }
 }
