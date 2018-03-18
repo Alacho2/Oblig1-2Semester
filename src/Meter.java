@@ -38,4 +38,9 @@ public abstract class Meter {
     public void setWorking(boolean working) {
         this.working = working;
     }
+
+    public boolean equals(Object other){
+        if (other == null || !(other instanceof Meter)) return false;
+        return ((Meter) other).getRegNum().equals(getRegNum());
+    }
 }
