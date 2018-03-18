@@ -48,8 +48,13 @@ public class MeterArchive {
      * @return The instrument in question.
      */
     public boolean deleteInstrument(String regNum){
-        meters.remove(regNum);
-        return true;
+        for(Iterator<Meter> it = meters.iterator(); it.hasNext();){
+            if(it.next().getRegNum().equals(regNum)){
+                it.remove();
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
